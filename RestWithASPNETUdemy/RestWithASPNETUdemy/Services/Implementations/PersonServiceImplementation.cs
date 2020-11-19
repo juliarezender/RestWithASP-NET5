@@ -16,7 +16,7 @@ namespace RestWithASPNETUdemy.Services.Implementations
 
         public void Delete(long id)
         {
-            throw new System.NotImplementedException();
+
         }
 
         public List<Person> FindAll()
