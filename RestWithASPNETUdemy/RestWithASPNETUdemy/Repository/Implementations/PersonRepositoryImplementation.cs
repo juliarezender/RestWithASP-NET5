@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace RestWithASPNETUdemy.Repository.Implementations
 {
-    public class PersonRepositoryImplementation : IPersonRepository
+    public class PersonRepositoryImplementation : IRepository
     {
         // Counter responsible for generating a fake ID
         // since we are not accessing any database
