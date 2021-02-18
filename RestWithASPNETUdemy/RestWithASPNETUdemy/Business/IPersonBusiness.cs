@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Business
 {
-
     public interface IPersonBusiness
     {
         Person Create(Person person);

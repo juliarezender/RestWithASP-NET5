@@ -1,8 +1,7 @@
-CREATE TABLE IF NOT EXISTS `person` (
-	`id` BIGINT(20) NOT NULL AUTO_INCREMENT,
-	`first_name` VARCHAR(80) NOT NULL,
-	`last_name` VARCHAR(80) NOT NULL,
-	`address` VARCHAR(100) NOT NULL,
-	`gender` VARCHAR(6) NOT NULL,
-	PRIMARY KEY(`id`)
-)
+CREATE TABLE `books` (
+  `id` INT(10) AUTO_INCREMENT PRIMARY KEY,
+  `author` longtext,
+  `launch_date` datetime(6) NOT NULL,
+  `price` decimal(65,2) NOT NULL,
+  `title` longtext
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
