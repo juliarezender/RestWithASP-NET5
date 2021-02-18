@@ -11,9 +11,9 @@ namespace RestWithASPNETUdemy.Business.Implementations
     {
         // Counter responsible for generating a fake ID
         // since we are not accessing any database
-        private IPersonRepository _repository;
+        private IRepository<Person> _repository;
 
-        public PersonBusinessImplementation(IPersonRepository repository)
+        public PersonBusinessImplementation(IRepository<Person> repository)
         {
             _repository = repository;
         }
