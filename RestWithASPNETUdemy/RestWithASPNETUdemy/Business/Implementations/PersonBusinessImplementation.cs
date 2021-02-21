@@ -1,31 +1,31 @@
-using RestWithASPNETUdemy.Model.Context;
+using RestWithASPNETUdemy.Data.Converter.Implementations;
+using RestWithASPNETUdemy.Data.VO;
 using RestWithASPNETUdemy.Moldel;
 using RestWithASPNETUdemy.Repository;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace RestWithASPNETUdemy.Business.Implementations
 {
     public class PersonBusinessImplementation : IPersonBusiness
     {
-        // Counter responsible for generating a fake ID
-        // since we are not accessing any database
         private IRepository<Person> _repository;
+
+        private readonly PersonConverter _converter;
 
         public PersonBusinessImplementation(IRepository<Person> repository)
         {
             _repository = repository;
+            _converter = new PersonConverter();
         }
 
-        // Method responsible for creating a new person.
-        // If we had a database this would be the time to persist the data
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
-            return _repository.Create(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
         }
 
-        // Method responsible for deleting a person from an ID
+        // Method responsible for deleting a PersonVO from an ID
         public void Delete(long id)
         {
             _repository.Delete(id);
@@ -33,24 +33,26 @@ namespace RestWithASPNETUdemy.Business.Implementations
 
         // Method responsible for returning all people,
         // again this information is mocks
-        public List<Person> FindAll()
+        public List<PersonVO> FindAll()
         {
 
-            return _repository.FindAll();
+            return _converter.Parse(_repository.FindAll());
         }
 
-        // Method responsible for returning a person
+        // Method responsible for returning a PersonVO
         // as we have not accessed any database we are returning a mock
-        public Person FindByID(long id)
+        public PersonVO FindByID(long id)
         {
-            return _repository.FindByID(id);
+            return _converter.Parse(_repository.FindByID(id));
         }
         
-        // Method responsible for updating a person for
+        // Method responsible for updating a PersonVO for
         // being mock we return the same information passed
-        public Person Update(Person person)
+        public PersonVO Update(PersonVO person)
         {
-            return _repository.Update(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
     }
 }
