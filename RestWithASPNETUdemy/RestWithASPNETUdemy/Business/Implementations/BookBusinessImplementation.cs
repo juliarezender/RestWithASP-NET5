@@ -19,33 +19,38 @@ namespace RestWithASPNETUdemy.Business.Implementations
             _converter = new BookConverter();
         }
 
-        public BookVO Create(BookVO book)
-        {
-            var bookEntity = _converter.Parse(book);
-            bookEntity = _repository.Create(bookEntity);
-            return _converter.Parse(bookEntity);
-        }
-
-        public void Delete(long id)
-        {
-            _repository.Delete(id);
-        }
-
+        // Method responsible for returning all people,
         public List<BookVO> FindAll()
         {
             return _converter.Parse(_repository.FindAll());
         }
 
+        // Method responsible for returning one person by ID
         public BookVO FindByID(long id)
         {
             return _converter.Parse(_repository.FindByID(id));
         }
 
-        public BookVO Update(BookVO book)
+        // Method responsible to crete one new person
+        public BookVO Create(BookVO person)
         {
-            var bookEntity = _converter.Parse(book);
-            bookEntity = _repository.Update(bookEntity);
-            return _converter.Parse(bookEntity);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
+        }
+
+        // Method responsible for updating one person
+        public BookVO Update(BookVO person)
+        {
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
+        }
+
+        // Method responsible for deleting a person from an ID
+        public void Delete(long id)
+        {
+            _repository.Delete(id);
         }
     }
 }

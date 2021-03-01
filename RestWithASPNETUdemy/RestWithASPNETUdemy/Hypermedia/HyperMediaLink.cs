@@ -1,12 +1,18 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace RestWithASPNETUdemy.Hypermedia
 {
     public class HyperMediaLink
     {
         public string Rel { get; set; }
-        private string href { get; set; }
-        public string Href {
+
+        private string href;
+        public string Href
+        {
             get
             {
                 object _lock = new object();
@@ -16,9 +22,10 @@ namespace RestWithASPNETUdemy.Hypermedia
                     return sb.Replace("%2F", "/").ToString();
                 }
             }
-            set { 
-                href = value; 
-            } 
+            set
+            {
+                href = value;
+            }
         }
         public string Type { get; set; }
         public string Action { get; set; }

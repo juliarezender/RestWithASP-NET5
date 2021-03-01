@@ -5,16 +5,19 @@ using RestWithASPNETUdemy.Hypermedia.Abstract;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace RestWithASPNETUdemy.Hypermedia
 {
-    public abstract class ContentResponseEnricher<T> : IResponseEnricher where T : ISupportHyperMedia
+    public abstract class ContentResponseEnricher<T> : IResponseEnricher where T : ISupportsHyperMedia
     {
-        public bool CanEnrich(Type contenType)
+        public ContentResponseEnricher()
         {
-            return contenType == typeof(T) || contenType == typeof(List<T>);
+
+        }
+        public virtual bool CanEnrich(Type contentType)
+        {
+            return contentType == typeof(T) || contentType == typeof(List<T>);
         }
 
         protected abstract Task EnrichModel(T content, IUrlHelper urlHelper);
@@ -32,7 +35,7 @@ namespace RestWithASPNETUdemy.Hypermedia
             var urlHelper = new UrlHelperFactory().GetUrlHelper(response);
             if (response.Result is OkObjectResult okObjectResult)
             {
-                if(okObjectResult.Value is T model)
+                if (okObjectResult.Value is T model)
                 {
                     await EnrichModel(model, urlHelper);
                 }

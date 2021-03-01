@@ -1,7 +1,7 @@
 using RestWithASPNETUdemy.Model.Base;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestWithASPNETUdemy.Moldel
+namespace RestWithASPNETUdemy.Model
 {
     [Table("person")]
     public class Person : BaseEntity
@@ -14,9 +14,7 @@ namespace RestWithASPNETUdemy.Moldel
 
         [Column("address")]
         public string Address { get; set; }
-
         [Column("gender")]
         public string Gender { get; set; }
-
     }
 }

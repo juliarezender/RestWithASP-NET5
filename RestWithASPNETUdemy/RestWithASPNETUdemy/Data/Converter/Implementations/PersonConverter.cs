@@ -1,7 +1,6 @@
 ﻿using RestWithASPNETUdemy.Data.Converter.Contract;
 using RestWithASPNETUdemy.Data.VO;
-using RestWithASPNETUdemy.Moldel;
-using System;
+using RestWithASPNETUdemy.Model;
 using System.Collections.Generic;
 using System.Linq;
 

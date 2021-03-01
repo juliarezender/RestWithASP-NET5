@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestWithASPNETUdemy.Moldel;
 
 namespace RestWithASPNETUdemy.Model.Context
 {
@@ -9,8 +8,7 @@ namespace RestWithASPNETUdemy.Model.Context
         {
 
         }
-
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) {}
+        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
 
         public DbSet<Person> Persons { get; set; }
         public DbSet<Book> Books { get; set; }

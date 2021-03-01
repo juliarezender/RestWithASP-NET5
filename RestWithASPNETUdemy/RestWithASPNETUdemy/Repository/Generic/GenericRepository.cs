@@ -10,12 +10,12 @@ namespace RestWithASPNETUdemy.Repository.Generic
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
         private MySQLContext _context;
-        private DbSet<T> dataset;
 
+        private DbSet<T> dataset;
         public GenericRepository(MySQLContext context)
         {
             _context = context;
-            dataset = context.Set<T>();
+            dataset = _context.Set<T>();
         }
 
         public List<T> FindAll()
@@ -34,20 +34,17 @@ namespace RestWithASPNETUdemy.Repository.Generic
             {
                 dataset.Add(item);
                 _context.SaveChanges();
+                return item;
             }
             catch (Exception)
             {
                 throw;
             }
-            return item;
         }
 
         public T Update(T item)
         {
-            if (!Exists(item.Id)) return null;
-
             var result = dataset.SingleOrDefault(p => p.Id.Equals(item.Id));
-
             if (result != null)
             {
                 try
