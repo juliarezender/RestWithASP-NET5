@@ -488,3 +488,7 @@ C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\obj\Debug\net5.0\Res
 C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\obj\Debug\net5.0\ref\RestWithASPNETUdemy.dll
 C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.pdb
 C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\obj\Debug\net5.0\RestWithASPNETUdemy.genruntimeconfig.cache
+C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\julia\Desktop\RestWithASP-NET5\RestWithASPNETUdemy\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
