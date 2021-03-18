@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "lclba/JvOEoUvZZ3cHz+3NzIxuJChAMeIFE9ywXnb4JQ9vvuesO1d0sK4o2IZYE/RHTMtFU288tMN2GOoSWKGg==",
+  "dgSpecHash": "o74NzQSFvxUhRaRygQ6QdFLCzn7CNnpjoBFAHkoEL9r2cBxnHaFz7Vmw34vVsmcSjBQDLDuW8T6ZyPbl0nyu7w==",
   "success": true,
   "projectFilePath": "C:\\Users\\julia\\Desktop\\RestWithASP-NET5\\RestWithASPNETUdemy\\RestWithASPNETUdemy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\julia\\.nuget\\packages\\evolve\\2.4.0\\evolve.2.4.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.4\\microsoft.aspnetcore.authentication.jwtbearer.5.0.4.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.authorization\\2.2.0\\microsoft.aspnetcore.authorization.2.2.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.authorization.policy\\2.2.0\\microsoft.aspnetcore.authorization.policy.2.2.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.aspnetcore.hosting.abstractions\\2.2.0\\microsoft.aspnetcore.hosting.abstractions.2.2.0.nupkg.sha512",
@@ -50,6 +51,8 @@
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.extensions.primitives\\3.1.8\\microsoft.extensions.primitives.3.1.8.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.9.0\\microsoft.identitymodel.jsonwebtokens.6.9.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.identitymodel.logging\\6.9.0\\microsoft.identitymodel.logging.6.9.0.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.7.1\\microsoft.identitymodel.protocols.6.7.1.nupkg.sha512",
+    "C:\\Users\\julia\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.7.1\\microsoft.identitymodel.protocols.openidconnect.6.7.1.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.9.0\\microsoft.identitymodel.tokens.6.9.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.net.http.headers\\2.2.0\\microsoft.net.http.headers.2.2.0.nupkg.sha512",
     "C:\\Users\\julia\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

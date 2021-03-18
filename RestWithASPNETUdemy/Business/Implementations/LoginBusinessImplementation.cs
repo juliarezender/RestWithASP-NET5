@@ -43,6 +43,8 @@ namespace RestWithASPNETUdemy.Business.Implementations
             DateTime createDate = DateTime.Now;
             DateTime expirationDate = createDate.AddMinutes(_configuration.Minutes);
 
+            _repository.RefreshUserInfo(user);
+
             return new TokenVO(
                 true,
                 createDate.ToString(DATE_FORMAT),
