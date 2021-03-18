@@ -5,7 +5,7 @@ using RestWithASPNETUdemy.Data.VO;
 namespace RestWithASPNETUdemy.Controllers
 {
     [ApiVersion("1")]
-    [Route("api/[controller]/v1{version:apiVersion")]
+    [Route("api/[controller]/v{version:apiVersion}")]
     [ApiController]
     public class AuthController : ControllerBase
     {
