@@ -20,7 +20,7 @@ namespace RestWithASPNETUdemy.Repository
         public User ValidateCredentials(UserVO user)
         {
             var pass = ComputeHash(user.Password, new SHA256CryptoServiceProvider());
-            return _context.Users.FirstOrDefault(u => (u.UserName == user.UserName) && (user.Password == pass));
+            return _context.Users.FirstOrDefault(u => (u.UserName == user.UserName) && (u.Password == pass));
         }
         public User RefreshUserInfo(User user)
         {
@@ -49,6 +49,11 @@ namespace RestWithASPNETUdemy.Repository
             Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
 
             return BitConverter.ToString(hashedBytes);
+        }
+
+        public User ValidateCredentials(string userName)
+        {
+            return _context.Users.SingleOrDefault(u => u.UserName == userName);
         }
     }
 }

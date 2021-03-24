@@ -15,7 +15,7 @@ namespace RestWithASPNETUdemy.Model
         [Column("full_name")]
         public string FullName { get; set; }
         [Column("password")]
-        public string PassWordId { get; set; }
+        public string Password { get; set; }
         [Column("refresh_token")]
         public string RefreshToken { get; set; }
         [Column("refresh_token_expiry_time")]
