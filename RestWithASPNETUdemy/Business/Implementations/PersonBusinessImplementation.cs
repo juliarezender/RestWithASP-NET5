@@ -1,6 +1,6 @@
 ﻿using RestWithASPNETUdemy.Data.Converter.Implementations;
 using RestWithASPNETUdemy.Data.VO;
-using RestWithASPNETUdemy.Model;
+using RestWithASPNETUdemy.Hypermedia.Utils;
 using RestWithASPNETUdemy.Repository;
 using System.Collections.Generic;
 
@@ -8,7 +8,6 @@ namespace RestWithASPNETUdemy.Business.Implementations
 {
     public class PersonBusinessImplementation : IPersonBusiness
     {
-
         private readonly IPersonRepository _repository;
 
         private readonly PersonConverter _converter;
@@ -25,11 +24,41 @@ namespace RestWithASPNETUdemy.Business.Implementations
             return _converter.Parse(_repository.FindAll());
         }
 
+        public PagedSearchVO<PersonVO> FindWithPagedSearch(string name, string sortDirection, int pageSize, int page)
+        {
+            var offset = page > 0 ? (page - 1) * pageSize : 0;
+            var sort = (!string.IsNullOrWhiteSpace(sortDirection) && !sortDirection.Equals("desc")) ? "asc" : "desc";
+            var size = (pageSize < 1) ? 1 : pageSize;
+
+            string query = @"select
+                    *
+                from
+                    Person p
+                where
+                    and p.name like '%LEO%'
+                order by
+                    p.name asc limit 10 offset 1";
+            string countQuery = "";
+
+            var persons = _repository.FindWithPagedSearch(query);
+            int totalResults = _repository.GetCount(countQuery);
+
+            return new PagedSearchVO<PersonVO> 
+            {
+                CurrentPage = offset,
+                List = _converter.Parse(persons),
+                PageSize = size,
+                SortDirections = sort,
+                TotalResults = totalResults
+            };
+        }
+
         // Method responsible for returning one person by ID
         public PersonVO FindByID(long id)
         {
             return _converter.Parse(_repository.FindByID(id));
         }
+
         public List<PersonVO> FindByName(string firstName, string lastName)
         {
             return _converter.Parse(_repository.FindByName(firstName, lastName));
@@ -50,7 +79,7 @@ namespace RestWithASPNETUdemy.Business.Implementations
             personEntity = _repository.Update(personEntity);
             return _converter.Parse(personEntity);
         }
-        
+
         // Method resposible for disable a person from an ID
         public PersonVO Disable(long id)
         {

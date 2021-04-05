@@ -19,6 +19,6 @@ namespace RestWithASPNETUdemy.Repository
 
         List<T> FindWithPagedSearch(string query);
 
-        int GetCoutn(string query);
+        int GetCount(string query);
     }
 }

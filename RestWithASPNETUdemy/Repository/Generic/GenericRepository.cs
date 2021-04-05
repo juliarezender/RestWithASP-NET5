@@ -91,7 +91,7 @@ namespace RestWithASPNETUdemy.Repository.Generic
             return dataset.FromSqlRaw<T>(query).ToList();
         }
 
-        public int GetCoutn(string query)
+        public int GetCount(string query)
         {
             var result = "";
             using (var connection = _context.Database.GetDbConnection())
