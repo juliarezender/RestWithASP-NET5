@@ -8,14 +8,12 @@ using System.Collections.Generic;
 
 namespace RestWithASPNETUdemy.Controllers
 {
-
     [ApiVersion("1")]
     [ApiController]
     [Authorize("Bearer")]
     [Route("api/[controller]/v{version:apiVersion}")]
     public class PersonController : ControllerBase
     {
-
         private readonly ILogger<PersonController> _logger;
 
         // Declaration of the service used
@@ -56,6 +54,21 @@ namespace RestWithASPNETUdemy.Controllers
             var person = _personBusiness.FindByID(id);
             if (person == null) return NotFound();
             return Ok(person);
+        }
+
+        [HttpGet("{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public IActionResult Get(
+            [FromQuery] string name,
+            string sortDirection,
+            int pageSize,
+            int page)
+        {
+            return Ok(_personBusiness.FindWithPagedSearch(name, sortDirection, pageSize, page));
         }
 
         [HttpGet("findPersonByName")]
