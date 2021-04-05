@@ -20,7 +20,8 @@ namespace RestWithASPNETUdemy.Business.Implementations
 
         public byte[] GetFile(string filename)
         {
-            throw new NotImplementedException();
+            var filePath = _basePath + filename;
+            return File.ReadAllBytes(filePath);
         }
 
         public async Task<List<FileDetailVO>> SaveFilesToDisk(IList<IFormFile> files)
@@ -49,7 +50,7 @@ namespace RestWithASPNETUdemy.Business.Implementations
                     var destination = Path.Combine(_basePath, "", docName);
                     fileDetail.DocumentName = docName;
                     fileDetail.DocType = fileType;
-                    fileDetail.DocUrl = Path.Combine(baseUrl + "/api/file/v1" + fileDetail.DocumentName);
+                    fileDetail.DocUrl = Path.Combine(baseUrl + "/api/file/v1/" + fileDetail.DocumentName);
 
                     using var stream = new FileStream(destination, FileMode.Create);
                     await file.CopyToAsync(stream);
